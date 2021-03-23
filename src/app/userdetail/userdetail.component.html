@@ -1,0 +1,44 @@
+
+<div class="container">
+    <div class="row m-5">
+      <div class="col-sm-6">
+        <div class="card text-center">
+            <h1 class="card-title">Enter User</h1>
+            <div class="card-body">
+                <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+
+                    <mat-form-field class="form-element">
+                        <input matInput placeholder="First Name" formControlName="firstName">
+                        <mat-error *ngIf="!formGroup.controls['firstName'].valid && formGroup.controls['firstName'].touched">
+                            {{ getErrorFristName() }}
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="form-element">
+                        <input matInput placeholder="Last Name" formControlName="lastName">
+                        <mat-error *ngIf="!formGroup.controls['lastName'].valid && formGroup.controls['lastName'].touched">
+                            {{ getErrorLastName() }}
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="form-element">
+                        <input matInput formControlName="dob" type="date">
+                        <mat-error *ngIf="!formGroup.controls['dob'].valid && formGroup.controls['dob'].touched">
+                            {{ getErrorDob() }}
+                        </mat-error>
+                    </mat-form-field>
+
+
+                    <div class="form-element">
+                        <button mat-raised-button type="submit" class="button btn-primary"
+                            [disabled]="!formGroup.valid" >Submit Form</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <app-userview *ngIf="show" [user]="user" (newItemEvent)="onReset($event)"></app-userview>
+      </div>
+    </div>
+  </div>

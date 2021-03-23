@@ -1,0 +1,8 @@
+<div class="card text-center w-75">
+    <img src="https://source.unsplash.com/140x140/?face" class="rounded-circle" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{user.firstName}} {{user.lastName}}<span class="text-muted ml-1">{{user.dob | age}}</span></h5>
+      <p class="card-text"></p>
+      <button class="btn btn-primary float-right" (click)="res()">Reset</button>
+    </div>
+</div>
